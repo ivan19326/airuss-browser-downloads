@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08151e">
+<title>AIRUSS Browser — браузер с AI и переводом сайтов</title>
+<meta name="description" content="AIRUSS Browser для Windows — быстрые вкладки, перевод сайтов, история, закладки и AI-помощник.">
+<style>
+:root{color-scheme:dark;--bg:#08151e;--panel:#102432;--edge:#284653;--text:#f1faf9;--muted:#a5c1c9;--mint:#73e5ce}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 3%,#164a54 0,transparent 45%),var(--bg);color:var(--text);font-family:Segoe UI,Inter,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}button,a{outline-offset:4px}a:focus-visible{outline:2px solid var(--mint)}
+.container{max-width:1090px;margin:auto;padding:0 26px}
+header{height:84px;border-bottom:1px solid #ffffff15;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900;font-size:22px;letter-spacing:1px}.brand small{font-weight:600;font-size:11px;letter-spacing:2px;color:#8cb2b9;margin-left:8px}
+nav{display:flex;gap:24px;font-size:13px;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;border:1px solid #38766d;border-radius:100px;padding:8px 13px;color:#9aeee2;background:#0e3232;font-size:12px;font-weight:700;letter-spacing:.5px}
+.hero{padding:94px 0 88px}.hero h1{max-width:830px;font-size:clamp(42px,6.7vw,80px);line-height:1.04;letter-spacing:-3px;margin:24px 0}.hero h1 em{font-style:normal;color:var(--mint)}
+.lead{font-size:clamp(17px,2vw,20px);line-height:1.65;color:var(--muted);max-width:720px}
+.actions{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin:32px 0 16px}
+.btn{background:var(--mint);border-radius:13px;color:#062224;font-weight:800;padding:17px 24px;min-height:54px;display:inline-flex;align-items:center;justify-content:center;border:0;font-size:16px}
+.btn[aria-disabled=true]{background:#34565b;color:#d8ebec;cursor:not-allowed}
+.footnote{font-size:13px;color:#8ea9b4;line-height:1.6}
+.preview{border:1px solid #315760;border-radius:22px;background:#0c1c29;box-shadow:0 28px 90px #0008;padding:17px;margin:34px 0 80px}
+.previewbar{display:flex;gap:12px;margin-bottom:16px;align-items:center}.dot{width:11px;height:11px;border-radius:50%;background:#74e6bd}
+.tab{background:#183345;padding:12px 19px;border-radius:12px 12px 4px 4px;font-size:13px;color:#cbe8ee}
+.omnibar{border:1px solid #42606b;border-radius:12px;background:#132635;padding:15px;color:#82dcca;font-size:13px}
+.previewpane{background:linear-gradient(105deg,#173342,#0b1b29);border-radius:14px;padding:45px;min-height:245px;display:flex;flex-direction:column;justify-content:center}
+.previewpane strong{font-size:32px}.previewpane p{color:var(--muted);max-width:590px;line-height:1.6}
+h2{font-size:32px;margin:0 0 22px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature{border:1px solid var(--edge);border-radius:17px;background:var(--panel);padding:25px;min-height:170px}
+.feature h3{font-size:18px;margin:12px 0}.feature p{font-size:14px;line-height:1.65;color:var(--muted);margin:0}
+.icon{font-size:24px}
+section{margin-bottom:68px}.info{border-left:3px solid #56baad;padding:10px 0 10px 23px;color:#b8d1d6;line-height:1.7}
+footer{border-top:1px solid #ffffff17;padding:32px 0 55px;font-size:13px;color:#86a4aa;display:flex;gap:20px;flex-wrap:wrap}
+footer span{margin-right:auto}
+@media(max-width:800px){.container{padding:0 18px}.hero{padding:60px 0 55px}.hero h1{letter-spacing:-1.5px}.grid{grid-template-columns:1fr}nav{gap:13px}header{height:72px}.previewpane{padding:25px}.previewpane strong{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header><a class="brand" href="./">● AIRUSS <small>BROWSER</small></a><nav><a href="#features">Возможности</a><a href="#download">Скачать</a><a href="privacy.html">Приватность</a></nav></header>
+<main>
+<div class="hero" id="download">
+<span class="pill">WINDOWS 10/11 · БЕТА</span>
+<h1>Интернет удобнее.<br><em>AI ближе.</em></h1>
+<p class="lead">AIRUSS Browser — отдельный браузер с русским интерфейсом, переводом сайтов и возможностью подключить собственного AI-помощника.</p>
+<div class="actions"><a id="downloadLink" class="btn" href="#download" aria-disabled="true">Готовим публичный выпуск</a><span id="releaseStatus" class="footnote">Установщик проходит проверку</span></div>
+<p class="footnote">Бесплатно · Windows x64 · Не требуется SDK разработчика · Не содержит чужих API-ключей</p>
+</div>
+<div class="preview" role="img" aria-label="Схематичный вид интерфейса браузера AIRUSS">
+<div class="previewbar"><span class="dot"></span><span class="tab">AIRUSS — Новая вкладка</span><span class="tab">AI-помощник</span></div>
+<div class="omnibar">🔎&nbsp; Найти в интернете или ввести адрес</div>
+<div class="previewpane"><strong>AIRUSS Browser</strong><p>Вкладки, закладки, история, переводы сайтов и AI в одном современном окне.</p></div>
+</div>
+<section id="features"><h2>Возможности AIRUSS</h2>
+<div class="grid">
+<article class="feature"><span class="icon">🌍</span><h3>Перевод на русский</h3><p>Переводите иностранные сайты кнопкой в панели браузера. Можно включить автоперевод.</p></article>
+<article class="feature"><span class="icon">✦</span><h3>AI по вашему выбору</h3><p>Локальные модели Ollama и LM Studio или самостоятельное подключение поддерживаемого облачного провайдера.</p></article>
+<article class="feature"><span class="icon">◷</span><h3>Привычная навигация</h3><p>Вкладки, закладки, история, загрузки и настройки на основе Microsoft Edge WebView2.</p></article>
+</div></section>
+<section><h2>Важно знать перед установкой</h2>
+<div class="info">Это тестовая версия. При переводе текст страницы передаётся Google Translate; при использовании облачного AI информация может передаваться выбранному провайдеру. AI-функции требуют отдельной настройки. Установщик может быть без подписи издателя до завершения сертификации.</div></section>
+</main>
+<footer><span>© 2026 AIRUSS Browser · Beta</span><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="https://github.com/ivan19326" target="_blank" rel="noopener noreferrer">GitHub</a></footer>
+</div>
+<script>
+const endpoint='https://api.github.com/repos/ivan19326/airuss-browser-downloads/releases?per_page=10';
+fetch(endpoint,{headers:{'Accept':'application/vnd.github+json'}})
+.then(r=>{if(!r.ok)throw new Error('not yet available');return r.json()})
+.then(releases=>{
+  const release=Array.isArray(releases) ? releases.find(r=>!r.draft &&
+    r.assets?.some(a=>/^AIRUSS-Browser-Setup-.*-win-x64\.exe$/i.test(a.name))) : null;
+  if(!release)return;
+  const asset=release.assets.find(a=>/^AIRUSS-Browser-Setup-.*-win-x64\.exe$/i.test(a.name));
+  if(!asset)return;
+  const link=document.getElementById('downloadLink');
+  link.href=asset.browser_download_url;
+  link.textContent='Скачать AIRUSS для Windows';
+  link.removeAttribute('aria-disabled');
+  document.getElementById('releaseStatus').textContent=release.tag_name+' · '+Math.ceil(asset.size/1048576)+' МБ';
+}).catch(()=>{});
+</script>
+</body>
+</html>
