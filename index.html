@@ -42,10 +42,10 @@ footer span{margin-right:auto}
 <header><a class="brand" href="./">● AIRUSS <small>BROWSER</small></a><nav><a href="#features">Возможности</a><a href="#download">Скачать</a><a href="privacy.html">Приватность</a></nav></header>
 <main>
 <div class="hero" id="download">
-<span class="pill">WINDOWS 10/11 · БЕТА</span>
+<span class="pill">WINDOWS 10/11 · AIRUSS 1.0</span>
 <h1>Интернет удобнее.<br><em>AI ближе.</em></h1>
 <p class="lead">AIRUSS Browser — отдельный браузер с русским интерфейсом, переводом сайтов и возможностью подключить собственного AI-помощника.</p>
-<div class="actions"><a id="downloadLink" class="btn" href="https://github.com/ivan19326/airuss-browser-downloads/releases">Скачать AIRUSS Browser</a><span id="releaseStatus" class="footnote">Публичные сборки на GitHub Releases</span></div>
+<div class="actions"><a id="downloadLink" class="btn" href="https://github.com/ivan19326/airuss-browser-downloads/releases">Посмотреть доступные версии</a><span id="releaseStatus" class="footnote">Публичные сборки на GitHub Releases</span></div>
 <p class="footnote">Бесплатно · Windows x64 · Не требуется SDK разработчика · Не содержит чужих API-ключей</p>
 </div>
 <div class="preview" role="img" aria-label="Схематичный вид интерфейса браузера AIRUSS">
@@ -56,23 +56,25 @@ footer span{margin-right:auto}
 <section id="features"><h2>Возможности AIRUSS</h2>
 <div class="grid">
 <article class="feature"><span class="icon">🌍</span><h3>Перевод на русский</h3><p>Переводите иностранные сайты кнопкой в панели браузера. Можно включить автоперевод.</p></article>
-<article class="feature"><span class="icon">✦</span><h3>AI по вашему выбору</h3><p>Локальные модели Ollama и LM Studio или самостоятельное подключение поддерживаемого облачного провайдера.</p></article>
+<article class="feature"><span class="icon">✦</span><h3>AI по вашему выбору</h3><p>Выбирайте «Мозг AI»: каталог Qwen3, Gemma и Mistral, установка через Ollama, импорт GGUF, переключение моделей. По желанию — GPT или OpenRouter с личным ключом.</p></article>
 <article class="feature"><span class="icon">◷</span><h3>Привычная навигация</h3><p>Вкладки, закладки, история, загрузки и настройки на основе Microsoft Edge WebView2.</p></article>
 </div></section>
 <section><h2>Важно знать перед установкой</h2>
-<div class="info">Это тестовая версия. При переводе текст страницы передаётся Google Translate; при использовании облачного AI информация может передаваться выбранному провайдеру. AI-функции требуют отдельной настройки. Установщик может быть без подписи издателя до завершения сертификации.</div></section>
+<div class="info">AIRUSS работает на Windows 10/11 x64. Для локальных моделей требуется запущенный Ollama, скачивание моделей требует места на диске. Облачный AI используется только по выбору пользователя и может передавать данные провайдеру. Перевод Google Translate отправляет текст для перевода в Google. До получения сертификата издателя Windows может предупреждать о неподписанном установщике.</div></section>
 </main>
-<footer><span>© 2026 AIRUSS Browser · Beta</span><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="https://github.com/ivan19326" target="_blank" rel="noopener noreferrer">GitHub</a></footer>
+<footer><span>© 2026 AIRUSS Browser · 1.0</span><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="https://github.com/ivan19326" target="_blank" rel="noopener noreferrer">GitHub</a></footer>
 </div>
 <script>
 const endpoint='https://api.github.com/repos/ivan19326/airuss-browser-downloads/releases?per_page=10';
 fetch(endpoint,{headers:{'Accept':'application/vnd.github+json'}})
 .then(r=>{if(!r.ok)throw new Error('not yet available');return r.json()})
 .then(releases=>{
+  // Show AIRUSS 1.0 only when its release asset is actually public.
   const release=Array.isArray(releases) ? releases.find(r=>!r.draft &&
-    r.assets?.some(a=>/^AIRUSS-Browser-Setup-.*-win-x64\.exe$/i.test(a.name))) : null;
-  if(!release)return;
-  const asset=release.assets.find(a=>/^AIRUSS-Browser-Setup-.*-win-x64\.exe$/i.test(a.name));
+    /^v1\.0\.0$/i.test(r.tag_name) &&
+    r.assets?.some(a=>/^AIRUSS-Browser-Setup-1\.0\.0-win-x64\.exe$/i.test(a.name))) : null;
+  if(!release){document.getElementById("releaseStatus").textContent="AIRUSS 1.0 — подготовка публичной загрузки";return;}
+  const asset=release.assets.find(a=>/^AIRUSS-Browser-Setup-1\.0\.0-win-x64\.exe$/i.test(a.name));
   if(!asset)return;
   const link=document.getElementById('downloadLink');
   link.href=asset.browser_download_url;
