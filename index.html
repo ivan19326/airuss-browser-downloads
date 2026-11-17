@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#08151e">
-<title>AIRUSS Browser — браузер с AI и переводом сайтов</title>
-<meta name="description" content="AIRUSS Browser для Windows — быстрые вкладки, перевод сайтов, история, закладки и AI-помощник.">
+<title>AIRUSS 2.0 Team Preview — тестирование командой</title>
+<meta name="description" content="AIRUSS 2.0 Team Preview: скачайте тестовую версию для Windows, проверьте голосовое управление и AI-чат, предложите улучшения.">
 <style>
 :root{color-scheme:dark;--bg:#08151e;--panel:#102432;--edge:#284653;--text:#f1faf9;--muted:#a5c1c9;--mint:#73e5ce}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 3%,#164a54 0,transparent 45%),var(--bg);color:var(--text);font-family:Segoe UI,Inter,system-ui,sans-serif}
@@ -19,7 +19,7 @@ nav{display:flex;gap:24px;font-size:13px;color:var(--muted)}
 .lead{font-size:clamp(17px,2vw,20px);line-height:1.65;color:var(--muted);max-width:720px}
 .actions{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin:32px 0 16px}
 .btn{background:var(--mint);border-radius:13px;color:#062224;font-weight:800;padding:17px 24px;min-height:54px;display:inline-flex;align-items:center;justify-content:center;border:0;font-size:16px}
-.btn[aria-disabled=true]{background:#34565b;color:#d8ebec;cursor:not-allowed}
+.btn[aria-disabled=true]{background:#34565b;color:#d8ebec;cursor:not-allowed}.btn-secondary{background:#163347;border:1px solid #4a7b86;color:#b9f8ef}.btn-secondary:hover{background:#1d4056}
 .footnote{font-size:13px;color:#8ea9b4;line-height:1.6}
 .preview{border:1px solid #315760;border-radius:22px;background:#0c1c29;box-shadow:0 28px 90px #0008;padding:17px;margin:34px 0 80px}
 .previewbar{display:flex;gap:12px;margin-bottom:16px;align-items:center}.dot{width:11px;height:11px;border-radius:50%;background:#74e6bd}
@@ -42,17 +42,18 @@ footer span{margin-right:auto}
 <header><a class="brand" href="./">● AIRUSS <small>BROWSER</small></a><nav><a href="#features">Возможности</a><a href="#download">Скачать</a><a href="privacy.html">Приватность</a></nav></header>
 <main>
 <div class="hero" id="download">
-<span class="pill">WINDOWS 10/11 · БЕТА</span>
+<span class="pill">WINDOWS 10/11 · TEAM PREVIEW 2.0</span>
 <h1>Интернет удобнее.<br><em>AI ближе.</em></h1>
-<p class="lead">AIRUSS Browser — отдельный браузер с русским интерфейсом, переводом сайтов и возможностью подключить собственного AI-помощника.</p>
-<div class="actions"><a id="downloadLink" class="btn" href="https://github.com/ivan19326/airuss-browser-downloads/releases">Скачать AIRUSS Browser</a><span id="releaseStatus" class="footnote">Публичные сборки на GitHub Releases</span></div>
-<p class="footnote">Бесплатно · Windows x64 · Не требуется SDK разработчика · Не содержит чужих API-ключей</p>
+<p class="lead">Попробуйте AIRUSS 2.0: браузер, полноэкранный AI-чат и голосовые команды. Это версия для команды — нам важно ваше мнение о том, что удобно, что мешает и чего не хватает.</p>
+<div class="actions"><a id="downloadLink" class="btn" href="https://github.com/ivan19326/airuss-browser-downloads/releases/download/v2.0.0-team-preview.1/AIRUSS-Browser-Setup-2.0.0-team-preview-win-x64.exe">Скачать AIRUSS 2.0</a><a class="btn btn-secondary" href="https://github.com/ivan19326/airuss-browser-downloads/issues/new?template=airuss-team-feedback.yml" target="_blank" rel="noopener noreferrer">Оставить отзыв</a><span id="releaseStatus" class="footnote">Team Preview · 103 МБ · Windows x64</span></div>
+<p class="footnote">Бесплатно · Windows x64 · Отдельная тестовая установка · Не требует SDK · Облачные AI-модели подключаются с собственными ключами</p>
 </div>
 <div class="preview" role="img" aria-label="Схематичный вид интерфейса браузера AIRUSS">
 <div class="previewbar"><span class="dot"></span><span class="tab">AIRUSS — Новая вкладка</span><span class="tab">AI-помощник</span></div>
 <div class="omnibar">🔎&nbsp; Найти в интернете или ввести адрес</div>
 <div class="previewpane"><strong>AIRUSS Browser</strong><p>Вкладки, закладки, история, переводы сайтов и AI в одном современном окне.</p></div>
 </div>
+<section id="feedback"><h2>Команда, нам важно ваше мнение</h2><p class="lead">Установите AIRUSS, проверьте вкладки, AI-чат, микрофон, Яндекс Музыку, Telegram и экспорт беседы. Напишите, что понравилось, что неудобно и какую функцию добавить или убрать.</p><p class="footnote">Для формы отзыва потребуется учётная запись GitHub. Не прикладывайте пароли, API-ключи и личную переписку.</p><div class="actions"><a class="btn btn-secondary" href="https://github.com/ivan19326/airuss-browser-downloads/issues/new?template=airuss-team-feedback.yml" target="_blank" rel="noopener noreferrer">Предложить улучшение</a></div></section>
 <section id="features"><h2>Возможности AIRUSS</h2>
 <div class="grid">
 <article class="feature"><span class="icon">🌍</span><h3>Перевод на русский</h3><p>Переводите иностранные сайты кнопкой в панели браузера. Можно включить автоперевод.</p></article>
@@ -62,21 +63,21 @@ footer span{margin-right:auto}
 <section><h2>Важно знать перед установкой</h2>
 <div class="info">Это тестовая версия. При переводе текст страницы передаётся Google Translate; при использовании облачного AI информация может передаваться выбранному провайдеру. AI-функции требуют отдельной настройки. Установщик может быть без подписи издателя до завершения сертификации.</div></section>
 </main>
-<footer><span>© 2026 AIRUSS Browser · Beta</span><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="https://github.com/ivan19326" target="_blank" rel="noopener noreferrer">GitHub</a></footer>
+<footer><span>© 2026 AIRUSS Browser · Team Preview</span><a href="https://github.com/ivan19326/airuss-browser-downloads/issues/new?template=airuss-team-feedback.yml">Отзывы команды</a><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="https://github.com/ivan19326" target="_blank" rel="noopener noreferrer">GitHub</a></footer>
 </div>
 <script>
 const endpoint='https://api.github.com/repos/ivan19326/airuss-browser-downloads/releases?per_page=10';
 fetch(endpoint,{headers:{'Accept':'application/vnd.github+json'}})
 .then(r=>{if(!r.ok)throw new Error('not yet available');return r.json()})
 .then(releases=>{
-  const release=Array.isArray(releases) ? releases.find(r=>!r.draft &&
+  const release=Array.isArray(releases) ? releases.find(r=>!r.draft && r.tag_name==="v2.0.0-team-preview.1" &&
     r.assets?.some(a=>/^AIRUSS-Browser-Setup-.*-win-x64\.exe$/i.test(a.name))) : null;
   if(!release)return;
   const asset=release.assets.find(a=>/^AIRUSS-Browser-Setup-.*-win-x64\.exe$/i.test(a.name));
   if(!asset)return;
   const link=document.getElementById('downloadLink');
   link.href=asset.browser_download_url;
-  link.textContent='Скачать AIRUSS для Windows';
+  link.textContent='Скачать AIRUSS 2.0';
   link.removeAttribute('aria-disabled');
   document.getElementById('releaseStatus').textContent=release.tag_name+' · '+Math.ceil(asset.size/1048576)+' МБ';
 }).catch(()=>{});
