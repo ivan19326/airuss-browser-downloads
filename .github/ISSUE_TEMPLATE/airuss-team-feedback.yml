@@ -1,0 +1,41 @@
+name: "AIRUSS Team Preview — отзыв"
+description: "Расскажите, что работает хорошо, а что нужно улучшить."
+title: "[Team Preview] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо за тестирование AIRUSS Browser. Не прикладывайте пароли, токены API, данные карт или личную переписку.
+  - type: dropdown
+    id: overall
+    attributes:
+      label: "Общее впечатление"
+      options:
+        - "Очень удобно"
+        - "Хорошо, но нужны улучшения"
+        - "Пока неудобно"
+        - "Не удалось запустить"
+    validations:
+      required: true
+  - type: textarea
+    id: strengths
+    attributes:
+      label: "Что понравилось?"
+      placeholder: "Какие функции оставляем?"
+  - type: textarea
+    id: issues
+    attributes:
+      label: "Что мешает пользоваться?"
+      placeholder: "Ошибки, скорость, внешний вид, управление голосом..."
+    validations:
+      required: true
+  - type: textarea
+    id: ideas
+    attributes:
+      label: "Что добавить, убрать или изменить?"
+      placeholder: "Идеи, которые стоит обсудить всей командой."
+  - type: input
+    id: system
+    attributes:
+      label: "Windows и версия AIRUSS (необязательно)"
+      placeholder: "Windows 10/11; Team Preview 2.0"
