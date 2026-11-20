@@ -43,13 +43,13 @@ h2{font-size:32px;margin:0 0 22px}.grid{display:grid;grid-template-columns:repea
 .icon{font-size:24px}
 section{margin-bottom:68px}.info{border-left:3px solid #56baad;padding:10px 0 10px 23px;color:#b8d1d6;line-height:1.7}
 footer{border-top:1px solid #ffffff17;padding:32px 0 55px;font-size:13px;color:#86a4aa;display:flex;gap:20px;flex-wrap:wrap}
-footer span{margin-right:auto}
+.report-fab{position:fixed;right:20px;bottom:20px;z-index:50;display:inline-flex;align-items:center;gap:10px;background:#73e5ce;color:#062224;border:2px solid #102f34;border-radius:999px;padding:13px 18px;font-weight:800;font-size:14px;box-shadow:0 10px 32px #0009}.report-fab:hover{background:#b8fff1}.report-fab:focus-visible{outline:3px solid #fff;outline-offset:3px}@media(max-width:600px){.report-fab{right:12px;bottom:12px;padding:12px 15px;font-size:13px}}footer span{margin-right:auto}
 @media(max-width:800px){.container{padding:0 18px}.hero{padding:60px 0 55px}.hero h1{letter-spacing:-1.5px}.grid{grid-template-columns:1fr}nav{gap:13px}header{height:72px}.previewpane{padding:25px}.previewpane strong{font-size:26px}}
 </style>
 </head>
 <body>
 <div class="container">
-<header><a class="brand" href="./">● AIRUSS <small>BROWSER</small></a><nav><a href="#features">Возможности</a><a href="#download">Скачать</a><a href="privacy.html">Приватность</a></nav></header>
+<header><a class="brand" href="./">● AIRUSS <small>BROWSER</small></a><nav><a href="#features">Возможности</a><a href="#download">Скачать</a><a href="privacy.html">Приватность</a><a href="#feedback">Поддержка</a></nav></header>
 <main>
 <div class="hero" id="download">
 <span class="pill">WINDOWS 10/11 · ОФИЦИАЛЬНЫЙ ВЫПУСК 1.0</span>
@@ -63,7 +63,7 @@ footer span{margin-right:auto}
 <div class="omnibar">🔎&nbsp; Найти в интернете или ввести адрес</div>
 <div class="previewpane"><strong>AIRUSS Browser</strong><p>Вкладки, закладки, история, переводы сайтов и AI в одном современном окне.</p></div>
 </div>
-<section id="feedback"><h2>Ваше мнение помогает улучшать AIRUSS</h2><p class="lead">Попробуйте вкладки, AI-чат, микрофон, Яндекс Музыку, Telegram и экспорт беседы. Расскажите, что удобно и что стоит улучшить.</p><p class="footnote">Для формы отзыва потребуется учётная запись GitHub. Не прикладывайте пароли, API-ключи и личную переписку.</p><div class="actions"><a class="btn btn-secondary" href="https://github.com/ivan19326/airuss-browser-downloads/issues/new?template=airuss-team-feedback.yml" target="_blank" rel="noopener noreferrer">Предложить улучшение</a></div></section>
+<section id="feedback"><h2>Ваше мнение помогает улучшать AIRUSS</h2><p class="lead">Обнаружили неисправность на сайте или в браузере? Используйте отдельную форму сообщения об ошибке.</p><div class="actions"><a class="btn" href="https://github.com/ivan19326/airuss-browser-downloads/issues/new?template=bug_report.yml" target="_blank" rel="noopener noreferrer">🐞 Сообщить об ошибке</a><a class="btn btn-secondary" href="https://github.com/ivan19326/airuss-browser-downloads/issues" target="_blank" rel="noopener noreferrer">Статус обращений</a></div><p class="lead">Попробуйте вкладки, AI-чат, микрофон, Яндекс Музыку, Telegram и экспорт беседы. Расскажите, что удобно и что стоит улучшить.</p><p class="footnote">Для отправки обращения потребуется учётная запись GitHub. Не прикладывайте пароли, API-ключи и личную переписку.</p><div class="actions"><a class="btn btn-secondary" href="https://github.com/ivan19326/airuss-browser-downloads/issues/new?template=airuss-team-feedback.yml" target="_blank" rel="noopener noreferrer">Предложить улучшение</a></div></section>
 <section id="features"><h2>Возможности AIRUSS</h2>
 <div class="grid">
 <article class="feature"><span class="icon">🌍</span><h3>Перевод на русский</h3><p>Переводите иностранные сайты кнопкой в панели браузера. Можно включить автоперевод.</p></article>
@@ -73,6 +73,7 @@ footer span{margin-right:auto}
 <section><h2>Важно знать перед установкой</h2>
 <div class="info">При переводе текст страницы передаётся Google Translate; при использовании общего AI отправленный вопрос передаётся серверу AIRUSS и Яндексу. Другие облачные AI-провайдеры подключаются отдельно. На общий AI действуют лимиты запросов. Установщик пока без цифровой подписи издателя; не отключайте защиту Windows.</div></section>
 </main>
+<a class="report-fab" href="https://github.com/ivan19326/airuss-browser-downloads/issues/new?template=bug_report.yml" target="_blank" rel="noopener noreferrer" aria-label="Сообщить об ошибке AIRUSS">🐞 Сообщить об ошибке</a>
 <footer><span>© 2026 AIRUSS Browser</span><a href="https://github.com/ivan19326/airuss-browser-downloads/issues/new?template=airuss-team-feedback.yml">Отзывы пользователей</a><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="https://github.com/ivan19326" target="_blank" rel="noopener noreferrer">GitHub</a></footer>
 </div>
 

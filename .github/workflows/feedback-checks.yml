@@ -1,0 +1,30 @@
+name: AIRUSS — проверки центра обращений
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Проверка Python
+        run: python -m py_compile scripts/ai_site_fix.py
+      - name: Проверка кнопок и ссылок
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          html = Path('index.html').read_text(encoding='utf-8')
+          assert 'Сообщить об ошибке' in html
+          assert 'issues/new?template=bug_report.yml' in html
+          assert Path('.github/ISSUE_TEMPLATE/bug_report.yml').exists()
+          assert Path('.github/workflows/issue-triage.yml').exists()
+          assert Path('.github/workflows/ai-site-fix.yml').exists()
+          class Parser(HTMLParser):
+              pass
+          Parser().feed(html)
+          print('Basic feedback-center checks passed')
+          PY
