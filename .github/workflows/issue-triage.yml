@@ -1,0 +1,43 @@
+name: AIRUSS — классификация жалоб
+on:
+  issues:
+    types: [opened, edited, reopened]
+permissions:
+  issues: write
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Классифицировать жалобу
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            if (!issue || issue.pull_request) return;
+            const t = ((issue.title || '') + '\n' + (issue.body || '')).toLowerCase().slice(0, 30000);
+            const patterns = [
+              ['area:security', /уязвим|взлом|утечк|xss|инъекц|security|vulnerab/],
+              ['area:website', /сайт|страниц|ссылк|скач|download|404|502|домен|dns/],
+              ['area:voice', /микрофон|голос|аудио|speech|tts/],
+              ['area:ai', /нейросет|модел|ai-|ai |чат|ollama|gemini|gpt/],
+              ['area:installer', /установ|install|setup|windows|smartscreen/],
+              ['area:ui', /кнопк|шрифт|текст|интерфейс|видно|экран/],
+              ['area:performance', /медлен|завис|тормоз|скорост|секунд|latency/]
+            ];
+            const area = patterns.find(([_, re]) => re.test(t))?.[0] || 'area:other';
+            const severity = /уязвим|утечк|взлом|security|vulnerab/i.test(t) ? 'priority:review-security' :
+              /невозможно пользоваться|не открывается|ничего не работает|не запускается/i.test(t) ? 'priority:high' : 'priority:normal';
+            const desired = ['status:needs-review', area, severity];
+            for (const name of desired) {
+              try { await github.rest.issues.getLabel({ ...context.repo, name }); }
+              catch (e) {
+                if (e.status !== 404) throw e;
+                await github.rest.issues.createLabel({ ...context.repo, name, color: name.startsWith('priority:') ? 'D93F0B' : '0E8A16', description: 'AIRUSS automated issue triage' });
+              }
+            }
+            const current = (issue.labels || []).map(l => l.name);
+            const previous = current.filter(n => n.startsWith('area:') || n.startsWith('priority:'));
+            for (const name of previous) if (!desired.includes(name)) {
+              await github.rest.issues.removeLabel({ ...context.repo, issue_number: issue.number, name }).catch(e => {if(e.status !== 404) throw e;});
+            }
+            await github.rest.issues.addLabels({ ...context.repo, issue_number: issue.number, labels: desired });
