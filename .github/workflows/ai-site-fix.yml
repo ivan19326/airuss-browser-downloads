@@ -1,0 +1,27 @@
+name: AIRUSS — AI черновик исправления сайта
+on:
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Номер обращения GitHub Issue (только ошибки сайта)'
+        required: true
+        type: number
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+jobs:
+  propose-site-fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Python syntax
+        run: python -m py_compile scripts/ai_site_fix.py
+      - name: Generate draft PR if approved
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-4.1-mini
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+        run: python scripts/ai_site_fix.py
