@@ -91,9 +91,9 @@ if (not new_html.lower().startswith("<!doctype html>") or
 download = "https://github.com/ivan19326/airuss-browser-downloads/releases/download/v1.0.0/AIRUSS-Browser-Setup-1.0.0-win-x64.exe"
 if original.count(download) != new_html.count(download):
     sys.exit("Official download URL was altered")
-if len(re.findall(r"<script\\b", new_html, flags=re.I)) != len(re.findall(r"<script\\b", original, flags=re.I)):
+if len(re.findall(r"<script\b", new_html, flags=re.I)) != len(re.findall(r"<script\b", original, flags=re.I)):
     sys.exit("Script element count changed")
-if re.search(r"https?://[^\\\"'\\s<>]+", new_html) and set(re.findall(r"https?://[^\\\"'\\s<>]+", new_html)) - set(re.findall(r"https?://[^\\\"'\\s<>]+", original)):
+if set(re.findall(r"""https?://[^\s"'<>]+""", new_html)) - set(re.findall(r"""https?://[^\s"'<>]+""", original)):
     sys.exit("Proposal adds new external URLs")
 
 default_branch = request(API)["default_branch"]
