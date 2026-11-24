@@ -1,7 +1,5 @@
 name: AIRUSS — AI черновик исправления сайта
 on:
-  issues:
-    types: [labeled]
   workflow_dispatch:
     inputs:
       issue_number:
@@ -9,22 +7,24 @@ on:
         required: true
         type: number
 permissions:
-  contents: write
+  contents: read
   issues: write
-  pull-requests: write
+  pull-requests: none
 jobs:
   propose-site-fix:
-    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'ai-fix-approved'
+    if: github.event_name == 'workflow_dispatch' && github.actor == github.repository_owner && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
       - name: Verify Python syntax
         run: python -m py_compile scripts/ai_site_fix.py
-      - name: Generate draft PR if approved
+      - name: Analyze approved issue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: gpt-4.1-mini
-          ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue_number }}
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
         run: python scripts/ai_site_fix.py
